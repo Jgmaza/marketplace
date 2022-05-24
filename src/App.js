@@ -1,8 +1,23 @@
+import CardProduct from "./components/CardProduct";
+
+
 function App() {
   
   return (
     <>
-      <h1>MarketPlace</h1>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+      <CardProduct/>
+
     </>
   );
 }
