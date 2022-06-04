@@ -1,23 +1,11 @@
 import CardProduct from "./components/Items/CardProduct";
-
+import Registration from "./components/Login/Registration"
 
 function App() {
   
   return (
     <>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-
+      <Registration/>
     </>
   );
 }
