@@ -1,5 +1,5 @@
 //Components
-import Registration from "./components/Login/Registration"
+import Registration from "./components/Login/Register"
 import Login from "./components/Login/Login"
 
 //Routes
@@ -24,7 +24,7 @@ function App() {
         <Routes>
           
           <Route path='/login' element={<Login/>}/>
-          <Route path='/registration' element={<Registration/>}/>
+          <Route path='/register' element={<Register/>}/>
           
         </Routes>
         

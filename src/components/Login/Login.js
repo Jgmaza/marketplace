@@ -2,8 +2,6 @@ import React, {useState}  from 'react'
 import { Grid, Paper, TextField, Button, Typography, Link, Alert} from '@mui/material'
 
 
-let USUARIO_ACTUAL = '';
-
 const Login = () => {
     const [userlog, setNamelog] = useState('');
     const [passlog, setPasslog] = useState('');
@@ -35,7 +33,6 @@ const Login = () => {
                     if (element.pass==passlog){
                         alert('Inicio sesión correctamente')
                         window.localStorage.setItem('USER', JSON.stringify(element))
-                        USUARIO_ACTUAL = element;
                         enc = true;
                     }else{
                         alert('Contraseña incorrecta')

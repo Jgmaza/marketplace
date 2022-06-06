@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Grid, Paper, TextField, Button, Typography, Link, FormControlLabel, Checkbox, Alert, Radio, RadioGroup } from '@mui/material'
 
 
-const Registration = () => {
+const Register = () => {
 
     const [user, setName] = useState('');
     const [mail, setMail] = useState('');
@@ -43,6 +43,7 @@ const Registration = () => {
                             usuarios.push(usuario)
                             window.localStorage.setItem('usuarios', JSON.stringify(usuarios))
                         }
+                        alert('Se ha registrado correctamente')
                         setName('');
                         setMail('');
                         setPass('');
@@ -79,7 +80,7 @@ const Registration = () => {
         <Grid>
             <Paper elevation={10} style={{ padding: '20px 30px', width: '300px', margin: '20px auto' }}>
                 <Grid align='center'>
-                    <h2 style={{ margin: 2 }}>Registro</h2>
+                    <h2 style={{ margin: 2 }}>Registrarse</h2>
                     <Typography fontSize={11}> Llena todos los campos para continuar </Typography>
 
                     <form onSubmit={handleSubmit}>
@@ -126,4 +127,4 @@ const Registration = () => {
     )
 }
 
-export default Registration
+export default Register
