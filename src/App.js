@@ -1,5 +1,5 @@
 //Components
-import Registration from "./components/Login/Register"
+import Register from "./components/Login/Register"
 import Login from "./components/Login/Login"
 
 //Routes
