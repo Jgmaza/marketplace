@@ -30,10 +30,9 @@ const Registration = () => {
                 }else{
                     let usuarios = window.localStorage.getItem('usuarios')
                     if (existeUsuarioCorreo(usuarios) == true) {
-                        console.log('entro existe usuario correo')
+        
                         setFlag(true)
                     } else {
-                        console.log('entro guuardar')
                         setFlag(false);
                         let usuario = { type, user, mail, pass }
 
@@ -119,7 +118,7 @@ const Registration = () => {
                     </form>
                     <Typography fontSize={12}>
                         ¿Ya tienes una cuenta?, {' '}
-                        <Link href=''>Ingresa</Link>
+                        <Link href='login'>Ingresa</Link>
                     </Typography>
                 </Grid>
             </Paper>

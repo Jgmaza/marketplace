@@ -72,7 +72,7 @@ const Login = () => {
                         
                         <Typography fontSize={12}>
                             ¿No tienes una cuenta? {' '}
-                            <Link href='#'>Registrarse</Link>
+                            <Link href='registration'>Registrarse</Link>
                         </Typography>
                         
             
