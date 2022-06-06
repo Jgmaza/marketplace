@@ -1,11 +1,24 @@
-import CardProduct from "./components/Items/CardProduct";
 import Registration from "./components/Login/Registration"
+import Login from "./components/Login/Login"
+
+//Fonts
+import { createTheme, ThemeProvider, Typography } from '@mui/material';
+const theme = createTheme({
+  typography: {fontFamily: ["Nunito", "Roboto", "Helvetica Neue", "Arial", "sans-serif"].join(",")}
+});
 
 function App() {
-  
   return (
     <>
-      <Registration/>
+    <ThemeProvider theme={theme}>
+      <Typography variant="body1">
+
+        <Login/>
+        <Registration/>
+        
+      </Typography>
+    </ThemeProvider>
+      
     </>
   );
 }
