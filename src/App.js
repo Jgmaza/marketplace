@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <Grid container sx={{ width: "70%" }}>
+      <Grid container sx={{ width: "90%" }}>
         {!products ? (
           <h1>Loading...</h1>
         ) : (
