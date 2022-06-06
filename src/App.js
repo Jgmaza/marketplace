@@ -1,42 +1,33 @@
-import { Grid } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import CardProduct from "./components/Items/CardProduct";
+import React from "react";
+import Home from "./components/Items/Home";
+
+//Routes
+import {Routes,Route} from 'react-router-dom';
+
+//Fonts
+import { createTheme, ThemeProvider, Typography } from '@mui/material';
+const theme = createTheme({
+  typography: {fontFamily: ["Nunito", "Roboto", "Helvetica Neue", "Arial", "sans-serif"].join(",")}
+});
 
 function App() {
-  const url = "https://fakestoreapi.com/products";
-  const [products, setProducts] = useState([]);
-  const fecthProducts = async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    setProducts(data);
-  };
-
-  fecthProducts();
-  useEffect(() => {
-    fecthProducts();
-  }, []);
-
+  
   return (
     <>
-      <Grid container sx={{ width: "90%" }}>
-        {!products ? (
-          <h1>Loading...</h1>
-        ) : (
-          products.map((product) => (
-            <Grid item xs={3}>
-              <CardProduct
-                key={product.id}
-                id={product.id}
-                title={product.title}
-                description={product.description}
-                price={product.price}
-                rating={product.rating.rate}
-                image={product.image}
-              />
-            </Grid>
-          ))
-        )}
-      </Grid>
+    <ThemeProvider theme={theme}>
+      <Typography variant="body1">
+
+
+        <Routes>
+          
+          <Route path='' element={<Home/> }/>
+          
+        </Routes>
+        
+        
+      </Typography>
+    </ThemeProvider>  
+
     </>
   );
 }
