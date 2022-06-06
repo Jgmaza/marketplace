@@ -1,23 +1,36 @@
-import CardProduct from "./components/Items/CardProduct";
+//Components
+import Register from "./components/Login/Register"
+import Login from "./components/Login/Login"
+
+//Routes
+import {Routes,Route} from 'react-router-dom';
+
+//Fonts
+import { createTheme, ThemeProvider, Typography } from '@mui/material';
+const theme = createTheme({
+  typography: {fontFamily: ["Nunito", "Roboto", "Helvetica Neue", "Arial", "sans-serif"].join(",")}
+});
+
+
 
 
 function App() {
-  
   return (
     <>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
-      <CardProduct/>
+    <ThemeProvider theme={theme}>
+      <Typography variant="body1">
 
+
+        <Routes>
+          
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register/>}/>
+          
+        </Routes>
+        
+        
+      </Typography>
+    </ThemeProvider>    
     </>
   );
 }
