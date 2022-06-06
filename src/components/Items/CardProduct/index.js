@@ -26,21 +26,16 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const CardProduct = () => {
+const CardProduct = (props) => {
     const [expanded, setExpanded] = React.useState(false);
-
+    const image = props.image;
     const handleExpandClick = () => {
       setExpanded(!expanded);
     };
   
     return (
-      <Card sx={{ maxWidth: 345 , margin: 2}}>
+      <Card sx={{ margin: 4 }}>
         <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              R
-            </Avatar>
-          }
           action={
             <IconButton aria-label="settings">
               <MoreVertIcon />
@@ -51,15 +46,15 @@ const CardProduct = () => {
         />
         <CardMedia
           component="img"
-          height="194"
-          image="https://mui.com/static/images/cards/paella.jpg"
+          max-width= "100%"
+          height= "300"
+          object-fit= "contain"
+          image= {image}
           alt="Paella dish"
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            This impressive paella is a perfect party dish and a fun meal to cook
-            together with your guests. Add 1 cup of frozen peas along with the mussels,
-            if you like.
+           {props.description}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
