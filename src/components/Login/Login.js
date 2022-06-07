@@ -20,7 +20,6 @@ const Login = () => {
                 setFlag(true)   
             }else{
                 setFlag(false)
-                console.log(USUARIO_ACTUAL);
             }
         } 
     }
@@ -69,7 +68,7 @@ const Login = () => {
                         
                         <Typography fontSize={12}>
                             ¿No tienes una cuenta? {' '}
-                            <Link href='registration'>Registrarse</Link>
+                            <Link href='register'>Registrarse</Link>
                         </Typography>
                         
             
