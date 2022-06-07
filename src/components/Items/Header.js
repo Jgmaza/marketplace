@@ -42,7 +42,7 @@ function Header() {
                         MARKETPLACE
                     </Typography>
 
-                    {user ?
+                    {!user ?
                         (<>
                         <Button style={{margin:'0px 10px'}}color="inherit" onClick={() => navigate('/register')} sx={{ fontWeight: 'bold' }}>Registrarse</Button>
                         
