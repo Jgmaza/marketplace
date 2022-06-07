@@ -1,44 +1,48 @@
 import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CardProduct from "./CardProduct";
+import Header from "./Header";
 
 function Home() {
-  const url = "https://fakestoreapi.com/products";
-  const [products, setProducts] = useState([]);
-  const fecthProducts = async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    setProducts(data);
-  };
+    const url = "https://fakestoreapi.com/products";
+    const [products, setProducts] = useState([]);
+    const fecthProducts = async () => {
+        const response = await fetch(url);
+        const data = await response.json();
+        setProducts(data);
+    };
 
-  fecthProducts();
-  useEffect(() => {
     fecthProducts();
-  }, []);
+    useEffect(() => {
+        fecthProducts();
+    }, []);
 
-  return (
-    <>
-      <Grid container sx={{ width: "100%" }}>
-        {!products ? (
-          <h1>Loading...</h1>
-        ) : (
-          products.map((product) => (
-            <Grid item xs={3}>
-              <CardProduct
-                key={product.id}
-                id={product.id}
-                title={product.title}
-                description={product.description}
-                price={product.price}
-                rating={product.rating.rate}
-                image={product.image}
-              />
+    return (
+
+        <>
+            <Header/>
+
+            <Grid container sx={{ width: "100%" }}>
+                {!products ? (
+                    <h1>Loading...</h1>
+                ) : (
+                    products.map((product) => (
+                        <Grid item xs={3}>
+                            <CardProduct
+                                key={product.id}
+                                id={product.id}
+                                title={product.title}
+                                description={product.description}
+                                price={product.price}
+                                rating={product.rating.rate}
+                                image={product.image}
+                            />
+                        </Grid>
+                    ))
+                )}
             </Grid>
-          ))
-        )}
-      </Grid>
-    </>
-  );
+        </>
+    );
 }
 
 export default Home;
