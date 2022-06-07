@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,13 +12,19 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Header() {
-    let USER = localStorage.getItem('USER')
+    
+    const [user, setUser] = useState(null)
+
     const navigate = useNavigate()
 
     function handleLogout() {
         window.localStorage.setItem('USER', JSON.stringify(null))
     }
 
+    useEffect(()=>{
+        let newUSER = JSON.parse(localStorage.getItem('USER'))
+        setUser(newUSER)
+    },[user])
     return (
         <Box position='static' sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ background: 'White', color: '#e94560' }}>
@@ -36,7 +42,7 @@ function Header() {
                         MARKETPLACE
                     </Typography>
 
-                    {!USER ?
+                    {user ?
                         (<>
                         <Button style={{margin:'0px 10px'}}color="inherit" onClick={() => navigate('/register')} sx={{ fontWeight: 'bold' }}>Registrarse</Button>
                         
@@ -49,7 +55,7 @@ function Header() {
                             </IconButton>
                             </>) :
                         (<>
-                            <Typography>Bienvenido, {USER.user}.</Typography>
+                            <Typography>Bienvenido, {user.user}.</Typography>
                             <IconButton
                                 size="small"
                                 aria-label="logout"
