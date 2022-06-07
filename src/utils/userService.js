@@ -1,7 +1,7 @@
 const USERS_KEY = "users-list";
 const USER_KEY = "user";
 
-const addUser = (newUser) => {
+export const addUser = (newUser) => {
   const users = JSON.parse(localStorage.getItem(USERS_KEY) ?? "[]");
   if (users.length === 0 || detectRepeat(newUser)) {
     users.push({ ...newUser, products: [] });
@@ -9,7 +9,7 @@ const addUser = (newUser) => {
   }
 };
 
-const detectRepeat = (newUser) => {
+export const detectRepeat = (newUser) => {
   const users = JSON.parse(localStorage.getItem(USERS_KEY) ?? "[]");
   const user = users.find((user) => user.mail === newUser.mail);
   if (user) {
@@ -18,7 +18,7 @@ const detectRepeat = (newUser) => {
   return false;
 };
 
-const updateUsers = (data) => {
+export const updateUsers = (data) => {
   const users = JSON.parse(localStorage.getItem(USERS_KEY) ?? "[]");
   const index = users.findIndex((user) => user.mail === data.mail);
   if (index > -1) {
@@ -29,11 +29,11 @@ const updateUsers = (data) => {
   }
 };
 
-const setLoguinUser = (data) => {
+export const setLoguinUser = (data) => {
   localStorage.setItem(USER_KEY, JSON.stringify(data));
 };
 
-const addProductToCart = (product) => {
+export const addProductToCart = (product) => {
   const user = JSON.parse(localStorage.getItem(USER_KEY) ?? "");
 
   if (user) {
@@ -51,7 +51,7 @@ const addProductToCart = (product) => {
   }
 };
 
-const deleteProductToCart = (product) => {
+export const deleteProductToCart = (product) => {
   const user = JSON.parse(localStorage.getItem(USER_KEY) ?? "");
   if (user) {
     const indexProduct = user.products.findIndex(
@@ -71,19 +71,19 @@ const deleteProductToCart = (product) => {
   }
 };
 
-const productRepeatDetect = (user) => {
+export const productRepeatDetect = (user) => {
   const indexProduct = user.products.findeIndex(
     (product) => product.image === user.image
   );
   return indexProduct > -1 ? indexProduct.count + 1 : -1;
 };
 
-const detectActualUser = () => {
+export const detectActualUser = () => {
   const user = JSON.parse(localStorage.getItem(USER_KEY) ?? "");
   return user;
 };
 
-const loginUser = ({ name, password }) => {
+export const loginUser = ({ name, password }) => {
   const users = JSON.parse(localStorage.getItem(USERS_KEY) ?? "[]");
   const user = users.find(
     (user) => user.name === name && user.password === password
@@ -91,14 +91,14 @@ const loginUser = ({ name, password }) => {
   return user;
 };
 
-module.exports = {
-  addUser,
-  detectRepeat,
-  updateUsers,
-  setLoguinUser,
-  addProductToCart,
-  detectActualUser,
-  loginUser,
-  detectActualUser,
-  deleteProductToCart
-};
+// module.export = {
+//   addUser,
+//   detectRepeat,
+//   updateUsers,
+//   setLoguinUser,
+//   addProductToCart,
+//   detectActualUser,
+//   loginUser,
+//   deleteProductToCart,
+//   productRepeatDetect
+// };
