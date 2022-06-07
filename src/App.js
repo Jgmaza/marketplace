@@ -8,6 +8,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 //Fonts
 import { createTheme, ThemeProvider, Typography } from "@mui/material";
+import { HomeMax } from "@mui/icons-material";
 const theme = createTheme({
   typography: {
     fontFamily: [
@@ -27,7 +28,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Typography variant="body1">
           <Routes>
-            <Route path="/" element={<Navigate to="/login" />} />
+            <Route path="/" element={<Home/>} />
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
