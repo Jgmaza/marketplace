@@ -53,7 +53,6 @@ const addProductToCart = (product) => {
 
 const deleteProductToCart = (product) => {
   const user = JSON.parse(localStorage.getItem(USER_KEY) ?? "");
-    debugger
   if (user) {
     const indexProduct = user.products.findIndex(
       (prod) => prod.image === product.image

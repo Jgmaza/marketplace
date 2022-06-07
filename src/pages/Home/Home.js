@@ -4,15 +4,17 @@ import CardProduct from "../../components/CardProduct";
 import Header from "../../components/Header/Header";
 import Cart from "../../components/Cart"
 
+const url = "https://fakestoreapi.com/products";
+
 function Home() {
-    const url = "https://fakestoreapi.com/products";
+
 
     const [products, setProducts] = useState([]);
 
     const fecthProducts = async () => {
         const response = await fetch(url);
         const data = await response.json();
-        setProducts(data);
+        setProducts([...data]);
     };
 
     fecthProducts();

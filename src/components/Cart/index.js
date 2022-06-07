@@ -10,15 +10,15 @@ const Cart = () => {
 
   useEffect(() => {
     const actualUser = detectActualUser()["products"];
-    setProducts([...actualUser]);
-  }, [products]);
+    setProducts([...actualUser,products]);
+  }, []);
 
   return (
     <>
       <Drawer
         anchor="right"
         open={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
+        onClose={() => setIsDrawerOpen(prev =>!prev)}
       >
         <Box p={2} width="250px" textAlign="center" role="presentation">
           <Typography variant="h6" component="div">
